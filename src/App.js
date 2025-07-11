@@ -4,6 +4,7 @@ import Header from './MyComponents/Header';
 import Footer from './MyComponents/Footer';
 import Todos from './MyComponents/todos';
 import About from './MyComponents/About';
+import AddTodo from './MyComponents/AddTodo';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -16,11 +17,22 @@ function App() {
   const onDelete = (todo) => {
     setTodos(todos.filter(e => e !== todo));
   };
+  const addTodo = (title, desc) => {
+    let sno = todos[todos.length-1].sno+1;
+    const myTodo = {
+      sno:sno,
+      title:title,
+      desc:desc
+    } 
+    setTodos([...todos,myTodo]);
+    console.log("i am adding this todo",title,desc);
+  }
 
   return (
     <Router>
       <div className="App">
         <Header title="My Todos Works" searchBar={true} />
+        <AddTodo addTodo ={addTodo}/>
         <Routes>
           <Route
             path="/"
