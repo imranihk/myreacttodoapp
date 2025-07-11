@@ -1,15 +1,14 @@
 import React from 'react';
 
 const Footer = () => {
-  let footerStyle = {
-    position: "relative",
-    top: "70vh",
+  const footerStyle = {
     width: "100%",
     borderTop: "1px solid #6c757d",
     backgroundColor: "#212529",
     color: "#adb5bd",
     textAlign: "center",
-    padding: "1rem 0"
+    padding: "1rem 0",
+    marginTop: "auto"  // key to make it flexible
   };
 
   return (
